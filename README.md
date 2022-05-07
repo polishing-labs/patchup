@@ -77,6 +77,17 @@ patchup --help
 
 
 
+最后目录结构应该如下
+
+```tree
+patchup
+├──|glibc-all-in-one
+│──├── patchelf
+│  ├── patchup.pyc
+│  └── setup.py
+```
+
+
 
 ## 示例
 
@@ -87,5 +98,4 @@ patchup --help
 patchup demo 2.23 -b
 ```
 <img width="945" alt="image" src="https://user-images.githubusercontent.com/93199623/167239899-9ee68231-1d84-4e7c-a85a-f38ad20635e3.png">
-
 
