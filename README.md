@@ -73,7 +73,8 @@ sudo pip install --editable .
 ```bash
 patchup --help
 ```
-<img width="590" alt="image" src="https://user-images.githubusercontent.com/93199623/167239534-2b50e226-be80-437e-80a7-fedbd7a752a5.png">
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/93199623/167239756-3f52d19f-390e-4648-ba74-fee10ba71dfb.png">
+
 
 
 
