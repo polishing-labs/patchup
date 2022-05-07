@@ -2,7 +2,7 @@
 
 ## Readme
 
-该工具是我自用的一个小工具，用于快速匹配 `ELF` 文件的 `gilbc` 库并安装，一个 `PWN` 手的趁手小工具，不要过多的在环境部署上浪费时间（配置 gilbc库），Just PWN ~
+该工具是我自用的一个小工具，用于快速匹配 `ELF` 文件的 `gilbc` 库并安装，一个 `PWN` 手的趁手小工具，不要过多的在环境部署上浪费时间（配置 `gilbc` 库），Just PWN ~
 
 ## Deploy
 
@@ -76,9 +76,9 @@ patchup --help
 
 ## 示例
 
-假设你有一个 名为 `demo`  ELF文件
+假设你有一个 名为 `demo`  ELF 文件
 
-你仅仅需要一下命令 ，就可以为该文件配置好 `gilbc` 库
+你仅仅需要以下命令 ，就可以为该文件配置好 `gilbc` 库
 
 ```bash
 patchelf demo 2.23 -b
