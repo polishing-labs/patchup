@@ -81,6 +81,6 @@ patchup --help
 你仅仅需要以下命令 ，就可以为该文件配置好 `gilbc` 库
 
 ```bash
-patchelf demo 2.23 -b
+patchup demo 2.23 -b
 ```
 
