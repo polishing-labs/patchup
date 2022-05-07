@@ -77,7 +77,7 @@ patchup --help
 
 
 
-<<<<<<< HEAD
+
 最后目录结构应该如下
 
 ```tree
@@ -88,9 +88,6 @@ patchup
 │  └── setup.py(仓库文件)
 ```
 
-
-=======
->>>>>>> a3184363eb844b0e16dd7c1aea0a5b2674b39bee
 
 ## 示例
 
