@@ -2,7 +2,6 @@
 import os
 import click
 import re
-from subprocess import check_output
 
 
 def log_w(value):
