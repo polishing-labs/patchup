@@ -77,17 +77,6 @@ patchup --help
 
 
 
-最后目录结构应该如下
-
-```tree
-patchup
-├──|glibc-all-in-one
-│──├── patchelf
-│  ├── patchup.pyc
-│  └── setup.py
-```
-
-
 
 ## 示例
 
@@ -97,5 +86,6 @@ patchup
 ```bash
 patchup demo 2.23 -b
 ```
-<img width="945" alt="image" src="https://user-images.githubusercontent.com/93199623/167239899-9ee68231-1d84-4e7c-a85a-f38ad20635e3.png">
+<img width="965" alt="image" src="https://user-images.githubusercontent.com/93199623/167239931-d6266ea8-5ee6-4dde-9037-a20ae9e73069.png">
 
+假设你的glibc-all-in-one中空空如也，别担心，你依旧可以输入上面的命令。patchup将会为你自动下载（如果你需要的话）
