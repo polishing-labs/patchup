@@ -96,7 +96,7 @@ patchup demo 2.23 -b
 ```
 <img width="965" alt="image" src="https://user-images.githubusercontent.com/93199623/167239931-d6266ea8-5ee6-4dde-9037-a20ae9e73069.png">
 
-###glibc-all-in-one中没有所需要的libc
+### glibc-all-in-one中没有所需要的libc
 假设你的 `glibc-all-in-one` 中空空如也（没有所需要的libc版本），别担心，你依旧可以输入上面的命令。`patchup` 将会为你自动下载（如果你需要的话）效果如下：
 <img width="1149" alt="image" src="https://user-images.githubusercontent.com/93199623/167242074-a6b3d411-af5d-4444-b9f4-acec16667e94.png">
 
@@ -104,11 +104,16 @@ patchup demo 2.23 -b
 <img width="1145" alt="image" src="https://user-images.githubusercontent.com/93199623/167242133-464207ad-6416-4cc1-859f-32ebca40ff7b.png">
 等待下载成功后，将自动进行 `patch`（如果不想下载的话，可以输入q退出）
 
-###使用题目指定的libc库
+### 使用题目指定的libc库
 如果题目给定了一个libc库，别担心 `patchup` 依旧会正常工作，`patchup` 将会去寻找相应匹配的 `ld`，如果有的话则会直接链接，
 <img width="966" alt="image" src="https://user-images.githubusercontent.com/93199623/167242830-9cf871bb-e025-4c51-9fca-c3d78f462924.png">
 没有的话则会自动下载（如果你需要的话），如下图
 <img width="1150" alt="image" src="https://user-images.githubusercontent.com/93199623/167242865-c6a01d64-1c9f-415b-aa18-5428821d0a15.png">
 
+<<<<<<< .merge_file_a19956
 ## Thanks
 尽管本工具异常的简单，但是对于我这个不太聪明的大一学生来说，写的过程也并不一帆风顺。感谢 Roderick 师傅带给我的启发以及解答一些我的困惑，也感谢我的队员 [Timochan](www.timochan.cn) , 如果没有他，关于这个工具在其他主机上的一些环境部署我可能无法实现（最后的结果可能就是自己用用，无法让他人使用）
+=======
+## 感谢
+尽管本工具异常的简单，但是对于我这个不太聪明的大一学生来说，写的过程也并不一帆风顺。感谢 Roderick 师傅带给我的启发以及解答一些我的困惑，也感谢我的同学  [Timochan](www.timochan.cn) ,如果没有他，关于这个工具在其他主机上的一些环境部署我可能无法实现（最后的结果可能就是自己用用，无法让他人使用）
+>>>>>>> .merge_file_a03988
