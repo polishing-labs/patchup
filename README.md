@@ -3,16 +3,16 @@
 ## 前言
 
 该工具是我自用的一个小工具（针对于做pwn题的辅助工具），用于快速修改本地`ELF`文件的libc使其与远程服务器那边所运行的程序依赖的`libc`库一样
-从而避免了因为`libc`问题，而导致本地打通了但是远程没打通的尴尬情况。因为每次都手动`patch libc`的过程太过于重复，而且有概率出错，同时受到了
-`roderick`师傅写的`pwncli`的启发，于是就有自己写一个命令行工具的想法。
+从而避免了因为 `libc` 问题，而导致本地打通了但是远程没打通的尴尬情况。因为每次都手动 `patch libc` 的过程太过于重复，而且有概率出错，同时受到了
+`roderick` 师傅写的 `pwncli` 的启发，于是就有自己写一个命令行工具的想法。
 
 ## Deploy
 
-由于目前我个人做`pwn`题习惯用`python2`，所以这个脚本是用`python2`来写的。这就导致了如果用`python3`运行的话，会出现一些错误
-（就比如我使用了`python2`里的`raw_input`函数）
+由于目前我个人做 `pwn` 题习惯用`python2`，所以这个脚本是用 `python2` 来写的。这就导致了如果用 `python3` 运行的话，会出现一些错误
+（就比如我使用了 `python2` 里的 `raw_input` 函数）
 
-由于这个小工具依赖的核心依然是`patchelf`和`glibc-all-in-one`，能让它以命令行工具的身份出现，还少不了python中的`click`模块。
-因此你应该有如下东西 `patchelf`   `glibc-all-in-one` ，如果有的话请直接看下面的`install patchup`部分，如果没有的话下文就是相关部署。
+由于这个小工具依赖的核心依然是 `patchelf` 和 `glibc-all-in-one` ，能让它以命令行工具的身份出现，还少不了python中的 `click` 模块。
+因此你应该有如下东西 `patchelf`   `glibc-all-in-one` ，如果有的话请直接看下面的`install patchup` 部分，如果没有的话下文就是相关部署。
 
 ### install patchelf
 
@@ -81,18 +81,18 @@ patchup --help
 
 ```tree
 patchup
-├──|glibc-all-in-one
-│──├── patchelf
-│  ├── patchup.pyc
-│  └── setup.py
+│──├── glibc-all-in-one (目录)
+│──├── patchelf (目录)
+│  ├── patchup.py(仓库文件)
+│  └── setup.py(仓库文件)
 ```
 
 
 
 ## 示例
 
-假设你有一个 名为 `demo`  ELF 文件,他现在默认的libc库是2.27的，但是服务器那边的这个程序所依赖的libc库是2.23的
-那么你就可以使用以下命令，去为你的ELF文件patch一个2.23的libc库。
+假设你有一个 名为 `demo`  ELF 文件,他现在默认的 `libc` 库是2.27的，但是服务器那边的这个程序所依赖的 `libc` 库是2.23的
+那么你就可以使用以下命令，去为你的ELF文件patch一个2.23的 `libc` 库。
 
 ```bash
 patchup demo 2.23 -b
