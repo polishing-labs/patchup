@@ -64,10 +64,16 @@ def pretreatment_arch(program_name):
 
 def download_libc(glibc_path, list, debug):
     """给出libc名称，去进行下载（只有在libs目录中没有搜到所需libc时，才会触发此函数）"""
-    choice = raw_input("The libc library and linker you need are matched "
-                       "in the glibc all in one list file. You can choose "
-                       "to download them by selecting the corresponding "
-                       "subscript index, or enter q to exit\n")
+    try:
+        choice = raw_input("The libc library and linker you need are matched "
+                           "in the glibc all in one list file. You can choose "
+                           "to download them by selecting the corresponding "
+                           "subscript index, or enter q to exit\n")
+    except:
+        choice = input("The libc library and linker you need are matched "
+                           "in the glibc all in one list file. You can choose "
+                           "to download them by selecting the corresponding "
+                           "subscript index, or enter q to exit\n")
     if choice == 'q':
         log_info("Normal exit")
         exit()
@@ -169,7 +175,6 @@ def patchup(program_name, libc_edition, backup, debug):
      then you should enter its full name or path,for example /home/hacker/Desktop/libc-2.23.so.
      If the topic does not provide a specific libc version, then you can input its version number,
      and it will find the corresponding libc from glibc-all-in-one for patching by default,for example 2.23.
-
      \n
      patchup PROGRAM_NAME 2.23\n
      To execute:\n
@@ -228,5 +233,3 @@ def patchup(program_name, libc_edition, backup, debug):
     log_info("Use ldd to check whether execute 'patchelf' successfully!\n")
     log_info("The output of ldd:")
     os.system("ldd {}".format(program_name))
-
-
