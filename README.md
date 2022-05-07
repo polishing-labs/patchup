@@ -107,6 +107,7 @@ patchup demo 2.23 -b
 ### 使用题目指定的libc库
 如果题目给定了一个libc库，别担心 `patchup` 依旧会正常工作，`patchup` 将会去寻找相应匹配的 `ld`，如果有的话则会直接链接，
 <img width="966" alt="image" src="https://user-images.githubusercontent.com/93199623/167242830-9cf871bb-e025-4c51-9fca-c3d78f462924.png">
+
  没有的话则会自动下载（如果你需要的话），如下图
 <img width="1150" alt="image" src="https://user-images.githubusercontent.com/93199623/167242865-c6a01d64-1c9f-415b-aa18-5428821d0a15.png">
 
