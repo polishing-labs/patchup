@@ -58,7 +58,7 @@ cd 到上级目录
 ## install patchup
 
 ```bash
-git clone <仓库地址>
+git clone https://github.com/polishing-labs/patchup.git
 
 cd patchup
 
