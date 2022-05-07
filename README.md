@@ -1,16 +1,18 @@
 # patchup
 
-## Readme
+## 前言
 
-该工具是我自用的一个小工具，用于快速匹配 `ELF` 文件的 `gilbc` 库并安装，一个 `PWN` 手的趁手小工具，不要过多的在环境部署上浪费时间（配置 `gilbc` 库），Just PWN ~
+该工具是我自用的一个小工具（针对于做pwn题的辅助工具），用于快速修改本地`ELF`文件的libc使其与远程服务器那边所运行的程序依赖的`libc`库一样
+从而避免了因为`libc`问题，而导致本地打通了但是远程没打通的尴尬情况。因为每次都手动`patch libc`的过程太过于重复，而且有概率出错，同时受到了
+`roderick`师傅写的`pwncli`的启发，于是就有自己写一个命令行工具的想法。
 
 ## Deploy
 
-It is so easy~
+由于目前我个人做`pwn`题习惯用`python2`，所以这个脚本是用`python2`来写的。这就导致了如果用`python3`运行的话，会出现一些错误
+（就比如我使用了`python2`里的`raw_input`函数）
 
-你应该是使用的 python2 吧？没有人会用写脚本相对麻烦的 python3 吧。
-
-首先你应该有如下东西 `patchelf`   `glibc-all-in-one` ，如果你没有，下文就是部署。
+由于这个小工具依赖的核心依然是`patchelf`和`glibc-all-in-one`，能让它以命令行工具的身份出现，还少不了python中的`click`模块。
+因此你应该有如下东西 `patchelf`   `glibc-all-in-one` ，如果有的话请直接看下面的`install patchup`部分，如果没有的话下文就是相关部署。
 
 ### install patchelf
 
@@ -56,7 +58,7 @@ chmod +x  extract  update_list download
 cd 到上级目录
 
 ## install patchup
-
+ok，假设你现在有了`patchelf`和`glibc-all-in-one` 那么你就可以输入以下命令来安装patchup这个小工具了 
 ```bash
 git clone https://github.com/polishing-labs/patchup.git
 
@@ -66,11 +68,12 @@ sudo pip install --editable .
 
 ```
 
-安装完成，可以这样看看是否正常？
+可以输入patchup --help命令查看帮助，如果出现下面图片所展示的内容，则说明安装成功。
 
 ```bash
 patchup --help
 ```
+<img width="590" alt="image" src="https://user-images.githubusercontent.com/93199623/167239534-2b50e226-be80-437e-80a7-fedbd7a752a5.png">
 
 
 
