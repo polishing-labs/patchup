@@ -107,7 +107,7 @@ patchup demo 2.23 -b
 ### 使用题目指定的libc库
 如果题目给定了一个libc库，别担心 `patchup` 依旧会正常工作，`patchup` 将会去寻找相应匹配的 `ld`，如果有的话则会直接链接，
 <img width="966" alt="image" src="https://user-images.githubusercontent.com/93199623/167242830-9cf871bb-e025-4c51-9fca-c3d78f462924.png">
-没有的话则会自动下载（如果你需要的话），如下图
+ 没有的话则会自动下载（如果你需要的话），如下图
 <img width="1150" alt="image" src="https://user-images.githubusercontent.com/93199623/167242865-c6a01d64-1c9f-415b-aa18-5428821d0a15.png">
 
 值得一提的就是，我碰见过使用`patchup`之后`patch`指定`libc`是失败的，不过我检查了一下发现这并不是`patchup`的问题，应该是`patchelf`出了点`bug`，所以碰到这种情况，可以换成`glibc-all-in-one`中版本一样的`libc`库试试。
