@@ -8,9 +8,6 @@
 
 ## Deploy
 
-由于目前我个人做 `pwn` 题习惯用`python2`，所以这个脚本是用 `python2` 来写的。这就导致了如果用 `python3` 运行的话，会出现一些错误
-（就比如我使用了 `python2` 里的 `raw_input` 函数）
-
 由于这个小工具依赖的核心依然是 `patchelf` 和 `glibc-all-in-one` ，能让它以命令行工具的身份出现，还少不了python中的 `click` 模块。
 因此你应该有如下东西 `patchelf`   `glibc-all-in-one` ，如果有的话请直接看下面的`install patchup` 部分，如果没有的话下文就是相关部署。
 
@@ -92,11 +89,22 @@ patchup
 ## 示例
 
 假设你有一个 名为 `demo`  ELF 文件,他现在默认的 `libc` 库是2.27的，但是服务器那边的这个程序所依赖的 `libc` 库是2.23的
-那么你就可以使用以下命令，去为你的ELF文件patch一个2.23的 `libc` 库。
+那么你就可以使用以下命令，去为你的ELF文件patch一个2.23的 `libc` 库。（-b是备份的意思，建议每次使用patchup时都开启该选项）
 
 ```bash
 patchup demo 2.23 -b
 ```
 <img width="965" alt="image" src="https://user-images.githubusercontent.com/93199623/167239931-d6266ea8-5ee6-4dde-9037-a20ae9e73069.png">
 
-假设你的 `glibc-all-in-one` 中空空如也，别担心，你依旧可以输入上面的命令。`patchup` 将会为你自动下载（如果你需要的话）
+假设你的 `glibc-all-in-one` 中空空如也，别担心，你依旧可以输入上面的命令。`patchup` 将会为你自动下载（如果你需要的话）效果如下：
+<img width="1149" alt="image" src="https://user-images.githubusercontent.com/93199623/167242074-a6b3d411-af5d-4444-b9f4-acec16667e94.png">
+此时match_libc_success_match展示了当前可以下载的libc版本，你可以输入下面索引来选择它们（第一个索引是0，第二个索引是1，以此类推）
+<img width="1145" alt="image" src="https://user-images.githubusercontent.com/93199623/167242133-464207ad-6416-4cc1-859f-32ebca40ff7b.png">
+等待下载成功后，将自动进行patch（如果不想下载的话，可以输入q退出）
+
+
+如果题目给定了一个libc库，别担心patchup依旧会正常工作，patchup将会去寻找相应匹配的ld，如果有的话则会直接链接，没有的话则会自动下载（如果你需要的话）
+<img width="966" alt="image" src="https://user-images.githubusercontent.com/93199623/167242830-9cf871bb-e025-4c51-9fca-c3d78f462924.png">
+<img width="1150" alt="image" src="https://user-images.githubusercontent.com/93199623/167242865-c6a01d64-1c9f-415b-aa18-5428821d0a15.png">
+
+
