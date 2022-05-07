@@ -80,11 +80,12 @@ patchup --help
 
 ## 示例
 
-假设你有一个 名为 `demo`  ELF 文件
-
-你仅仅需要以下命令 ，就可以为该文件配置好 `gilbc` 库
+假设你有一个 名为 `demo`  ELF 文件,他现在默认的libc库是2.27的，但是服务器那边的这个程序所依赖的libc库是2.23的
+那么你就可以使用以下命令，去为你的ELF文件patch一个2.23的libc库。
 
 ```bash
 patchup demo 2.23 -b
 ```
+<img width="945" alt="image" src="https://user-images.githubusercontent.com/93199623/167239899-9ee68231-1d84-4e7c-a85a-f38ad20635e3.png">
+
 
