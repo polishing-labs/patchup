@@ -171,7 +171,7 @@ def patchup(program_name, libc_edition, backup, debug):
      and it will find the corresponding libc from glibc-all-in-one for patching by default,for example 2.23.
 
      \n
-     max_patch PROGRAM_NAME 2.23\n
+     patchup PROGRAM_NAME 2.23\n
      To execute:\n
          patchelf --set-interpreter ./ld-2.23.so ./PROGRAM_NAME\n
          patchelf --replace-needed libc.so.6 ./libc-2.23.so ./PROGRAM_NAME
