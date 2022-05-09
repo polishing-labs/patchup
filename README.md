@@ -2,9 +2,9 @@
 
 ## 前言
 
-该工具是我自用的一个小工具（针对于做pwn题的辅助工具）（本工具的实现非常简单，而且这个工具的核心是依赖patchelf和glibc-all-in-one这两个工具），用于快速修改本地`ELF`文件的libc使其与远程服务器那边所运行的程序依赖的`libc`库一样
+该工具是我自用的一个小工具（针对于做pwn题的辅助工具）（本工具的实现非常简单，而且这个工具的核心是依赖 `patchelf` 和 `glibc-all-in-one` 这两个工具），用于快速修改本地`ELF` 文件的 `libc` 使其与远程服务器那边所运行的程序依赖的 `libc` 库一样
 从而避免了因为 `libc` 问题，而导致本地打通了但是远程没打通的尴尬情况。因为每次都手动 `patch libc` 的过程太过于重复，而且有概率出错，同时受到了
-`roderick` 师傅写的 `pwncli` 的启发，于是就有自己写一个命令行工具的想法。
+`roderick` 师傅写的 `pwncli` 的启发，于是就有自己写一个命令行工具的想法，Just PWN!
 
 ## Deploy
 
@@ -111,6 +111,6 @@ patchup demo 2.23 -b
  没有的话则会自动下载（如果你需要的话），如下图
 <img width="1150" alt="image" src="https://user-images.githubusercontent.com/93199623/167242865-c6a01d64-1c9f-415b-aa18-5428821d0a15.png">
 
-值得一提的就是，我碰见过使用 `patchup` 之后 `patch` 指定 `libc` 是失败的，不过我检查了一下发现这并不是 `patchup` 的问题，应该是`patchelf` 出了点 `bug`，所以碰到这种情况，可以换成`glibc-all-in-one`中版本一样的`libc`库试试。
+值得一提的就是，我碰见过使用 `patchup` 之后 `patch` 指定 `libc` 是失败的，不过我检查了一下发现这并不是 `patchup` 的问题，应该是 `patchelf` 出了点 `bug` ，所以碰到这种情况，可以换成 `glibc-all-in-one` 中版本一样的 `libc` 库试试。
 ## Thanks
 尽管本工具异常的简单，但是对于我这个不太聪明的大一学生来说，写的过程也并不一帆风顺。感谢 Roderick 师傅带给我的启发以及解答一些我的困惑，也感谢我的队员 [Timochan](https://www.timochan.cn) , 如果没有他，关于这个工具在其他主机上的一些环境部署我可能无法实现（最后的结果可能就是自己用用，无法让他人使用）
