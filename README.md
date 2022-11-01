@@ -119,7 +119,7 @@ patchup demo 2.23 -b
 
 ## 卸载
 
-给予 uninstall.sh 执行权限，然后执行即可。
+给予 `uninstall.sh` 执行权限，然后执行即可。
 
 ```bash
 chmod +x uninstall.sh
