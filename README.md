@@ -84,7 +84,7 @@ patchup
 	└── setup.py(仓库文件
 ```
 
-## 使用示例
+## Use patchup example
 
 假设你有一个 名为 `demo`  ELF 文件,他现在默认的 `libc` 库是 `2.27` 的，但是服务器那边的这个程序所依赖的 `libc` 库是2.23的
 那么你就可以使用以下命令，去为你的ELF文件patch一个 `2.23` 的 `libc` 库。（`-b` 是备份的意思，建议每次使用 `patchup` 时都开启该选项,`-c`是自主选择小版本libc的选项，开启这个选项你可以选择小版本不同的`2.23`的`libc`库，如果不开启，则默认是匹配到2.23版本的第一个`libc`库）
@@ -96,7 +96,7 @@ patchup demo 2.23 -b
 
 <img width="965" alt="image" src="https://user-images.githubusercontent.com/93199623/167239931-d6266ea8-5ee6-4dde-9037-a20ae9e73069.png">
 
-### glibc-all-in-one中没有所需要的libc
+### glibc-all-in-one 中没有所需要的libc
 
 
 假设你的 `glibc-all-in-one` 中空空如也（没有所需要的libc版本），别担心，你依旧可以输入上面的命令。`patchup` 将会为你自动下载（如果你需要的话）效果如下：
@@ -107,7 +107,7 @@ patchup demo 2.23 -b
 <img width="1145" alt="image" src="https://user-images.githubusercontent.com/93199623/167242133-464207ad-6416-4cc1-859f-32ebca40ff7b.png">
 等待下载成功后，将自动进行 `patch`（如果不想下载的话，可以输入q退出）
 
-### 使用题目指定的libc库
+### 使用题目指定的 libc 库
 
 
 如果题目给定了一个libc库，别担心 `patchup` 依旧会正常工作，`patchup` 将会去寻找相应匹配的 `ld`，如果有的话则会直接链接，
@@ -122,7 +122,7 @@ patchup demo 2.23 -b
 
 
 
-## 卸载
+## Uninstall
 
 给予 `uninstall.sh` 执行权限，然后执行即可。
 
