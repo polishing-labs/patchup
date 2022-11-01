@@ -2,38 +2,40 @@
 
 ## 前言
 
-该工具是我自用的一个小工具（针对于做 pwn 题的辅助工具）（本工具的实现非常简单，而且这个工具的核心是依赖 patchelf 和glibc-all-in-one 这两个工具），用于快速修改本地`ELF`文件的libc使其与远程服务器那边所运行的程序依赖的`libc`库一样
+该工具是我自用的一个小工具（针对于做 pwn 题的辅助工具）（本工具的实现非常简单，而且这个工具的核心是依赖 patchelf 和glibc-all-in-one 这两个工具），用于快速修改本地 `ELF` 文件的libc使其与远程服务器那边所运行的程序依赖的 `libc` 库一样
 从而避免了因为 `libc` 问题，而导致本地打通了但是远程没打通的尴尬情况。因为每次都手动 `patch libc` 的过程太过于重复，而且有概率出错，同时受到了
 `roderick` 师傅写的 `pwncli` 的启发，于是就有自己写一个命令行工具的想法。
 
 ## Deploy
 
 由于这个小工具依赖的核心依然是 `patchelf` 和 `glibc-all-in-one` ，能让它以命令行工具的身份出现，还少不了python中的 `click` 模块。
-因此你应该有如下东西 `patchelf`   `glibc-all-in-one` ，如果有的话请直接看下面的 [install patchup](#install-patchup) 部分，如果没有的话下文就是相关部署。
+因此你应该有如下东西 `patchelf` 、 `glibc-all-in-one` ，如果有的话请直接看下面的 [install patchup](#install-patchup) 部分，如果没有的话下文就是相关部署。
 
 ### install patchelf
 
 #### 直接使用预编译的二进制文件
 
 ```bash
-wget https://github.com/NixOS/patchelf/releases/download/0.14.5/patchelf-0.14.5-x86_64.tar.gz
-tar -xzvf patchelf-0.14.5-x86_64.tar.gz
-cd bin
-sudo mv patchelf /bin/patchelf
+wget https://github.com/NixOS/patchelf/releases/download/0.16.1/patchelf-0.16.1-x86_64.tar.gz
+tar -zxvf patchelf-0.16.1-x86_64.tar.gz
+cd patchelf-0.16.1-x86_64
+sudo mv bin/patchelf /usr/bin/patchelf
+cd .. && rm -r patchelf-0.16.1-x86_64
 ```
 
 #### 手动编译安装
 
 ```bash
-git clone https://github.com/NixOS/patchelf
+git clone https://github.com/NixOS/patchelf --depth 1
 
 cd patchelf
 # 安装autoreconf
-sudo apt install -y autoconf
+sudo apt install -y autoconf automake libtool
 # 赋予执行权限
 chmod +x bootstrap.sh
 # 使用预设脚本配置编译环境
 ./bootstrap.sh
+# 生成 Makefile 文件
 ./configure
 make
 make check
@@ -57,7 +59,7 @@ cd 到上级目录
 ## install patchup
 ok，假设你现在有了 `patchelf` 和 `glibc-all-in-one`  那么你就可以输入以下命令来安装 `patchup` 这个小工具了 
 ```bash
-git clone https://github.com/polishing-labs/patchup.git
+git clone https://github.com/polishing-labs/patchup.git --depth 1
 
 cd patchup
 
@@ -128,4 +130,5 @@ chmod +x uninstall.sh
 注意：我们会尽量减少对系统的侵入性，所以本项目依赖的 `patchelf` 和 `glibc-all-in-one` 会在卸载的时候保留，如果你不想保留的话，可以手动删除。
 
 ## Thanks
+
 尽管本工具异常的简单，但是对于我这个不太聪明的大一学生来说，写的过程也并不一帆风顺。感谢 Roderick 师傅带给我的启发以及解答一些我的困惑，也感谢我的队员 [Timochan](https://www.timochan.cn) , 如果没有他，关于这个工具在其他主机上的一些环境部署我可能无法实现（最后的结果可能就是自己用用，无法让他人使用）
