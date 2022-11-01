@@ -3,7 +3,7 @@
  # @Author: ttimochan
  # @Date: 2022-11-01 20:59:51
  # @LastEditors: ttimochan
- # @LastEditTime: 2022-11-01 21:14:59
+ # @LastEditTime: 2022-11-01 21:35:24
  # @FilePath: /patchup/uninstall.sh
 ### 
 if [ $UID -ne 0 ]; then
@@ -15,11 +15,15 @@ if [ -f /usr/bin/patchup ]; then
     echo "删除失败，请手动删除 /usr/bin/patchup"
     exit 1
 fi
-echo "删除 patchup 文件成功"
+echo "删除 patchup 可执行文件成功"
 SCRIPTDIR="$( cd "$( dirname "$0"  )" && pwd  )"
 rm -r $SCRIPTDIR
 if [ $? -ne 0 ]; then
     echo "删除失败"
     exit 1
 fi
+echo "删除 patchup 资源文件成功"
+sleep 2
+cd ..
 echo "卸载 patchup 成功"
+exit 0
