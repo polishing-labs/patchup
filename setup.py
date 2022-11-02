@@ -3,9 +3,9 @@
 '''
   @Author: ZIKH26
   @Date: 2022-03-01 20:59:51
-LastEditors: ttimochan
-LastEditTime: 2022-11-01 22:18:44
-FilePath: /patchup/setup.py
+  @LastEditors: ttimochan
+  @LastEditTime: 2022-11-01 22:18:44
+  @FilePath: /patchup/setup.py
 '''
 from setuptools import setup
 
