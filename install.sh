@@ -3,18 +3,15 @@
  # @Author: ttimochan
  # @Date: 2022-11-04 17:14:08
  # @LastEditors: ttimochan
- # @LastEditTime: 2022-11-04 17:31:25
+ # @LastEditTime: 2022-11-04 17:39:34
  # @FilePath: /patchup/install.sh
 ### 
 
-# 如果没有安装，调用安装函数
 install-patchelf()
 {
-    # install 
+
     echo "正在安装 patchelf..."
-    # install make autoconf libtool
     sudo apt install -y make autoconf libtool
-    # clone repo
     git clone https://github.com/NixOS/patchelf --depth 1 && \
     cd patchelf && \
     chmod +x bootstrap.sh && \
@@ -26,7 +23,6 @@ install-patchelf()
 
 
     echo "安装 patchelf 完成" && \
-    # install glibc-all-in-one
     echo "正在安装 glibc-all-in-one..." && \
     cd .. && \
 
@@ -50,7 +46,6 @@ install-patchup(){
     cd patchup && \
 
     sudo pip install --editable . && \
-    # check install
     if command -v patchup &> /dev/null; then
         echo "patchup 安装完成"
     else
@@ -60,9 +55,10 @@ install-patchup(){
 
 }
 if ! command -v patchup &> /dev/null; then
-    {   cd ..
-        install-patchelf
-    }
+        {   
+            cd ..
+            install-patchelf
+        }
     else 
         {
             echo "patchup 已安装, 直接进行下一步"
