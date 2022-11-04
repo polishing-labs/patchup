@@ -18,7 +18,7 @@ curl -sSL https://raw.githubusercontent.com/polishing-labs/patchup/master/instal
 
 # 或者
 
-wget -qO- wget https://fastly.jsdelivr.net/gh/polishing-labs/patchup@master/install.sh | bash
+wget -qO- https://fastly.jsdelivr.net/gh/polishing-labs/patchup@master/install.sh | bash
 ```
 
 ## 手动安装
