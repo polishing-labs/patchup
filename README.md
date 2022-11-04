@@ -20,9 +20,9 @@ curl -sSL https://raw.githubusercontent.com/polishing-labs/patchup/master/instal
 
 wget -qO- wget https://fastly.jsdelivr.net/gh/polishing-labs/patchup@master/install.sh | bash
 ```
-```
 
 ## 手动安装
+
 ### install patchelf
 
 #### 直接使用预编译的二进制文件
