@@ -3,7 +3,7 @@
  # @Author: ttimochan
  # @Date: 2022-11-04 17:14:08
  # @LastEditors: ttimochan
- # @LastEditTime: 2022-11-04 17:39:34
+ # @LastEditTime: 2022-11-04 17:45:20
  # @FilePath: /patchup/install.sh
 ### 
 
@@ -54,14 +54,14 @@ install-patchup(){
 
 
 }
-if ! command -v patchup &> /dev/null; then
+if ! command -v patchelf &> /dev/null; then
         {   
             cd ..
             install-patchelf
         }
     else 
         {
-            echo "patchup 已安装, 直接进行下一步"
+            echo "patchelf 已安装, 直接进行下一步"
             cd ..
             install-glibc-all-in-one
         }
