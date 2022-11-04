@@ -74,7 +74,7 @@ git clone https://github.com/polishing-labs/patchup.git --depth 1
 
 cd patchup
 
-sudo pip install --editable .
+sudo pip3 install --editable .
 ```
 
 可以输入patchup --help命令查看帮助，如果出现下面图片所展示的内容，则说明安装成功。

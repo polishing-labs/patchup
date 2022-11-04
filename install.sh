@@ -3,7 +3,7 @@
  # @Author: ttimochan
  # @Date: 2022-11-04 17:14:08
  # @LastEditors: ttimochan
- # @LastEditTime: 2022-11-04 17:52:23
+ # @LastEditTime: 2022-11-04 17:54:17
  # @FilePath: /patchup/install.sh
 ### 
 
@@ -45,7 +45,7 @@ install-patchup(){
 
     cd patchup && \
 
-    sudo pip install --editable . && \
+    sudo pip3 install --editable . && \
     if command -v patchup &> /dev/null; then
         echo "patchup 安装完成"
     else
