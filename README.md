@@ -11,6 +11,18 @@
 由于这个小工具依赖的核心依然是 `patchelf` 和 `glibc-all-in-one` ，能让它以命令行工具的身份出现，还少不了python中的 `click` 模块。
 因此你应该有如下东西 `patchelf` 、 `glibc-all-in-one` ，如果有的话请直接看下面的 [install patchup](#install-patchup) 部分，如果没有的话下文就是相关部署。
 
+## 一键安装
+
+```bash
+curl -sSL https://raw.githubusercontent.com/polishing-labs/patchup/master/install.sh | bash
+
+# 或者
+
+wget -qO- wget https://fastly.jsdelivr.net/gh/polishing-labs/patchup@master/install.sh | bash
+```
+```
+
+## 手动安装
 ### install patchelf
 
 #### 直接使用预编译的二进制文件
