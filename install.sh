@@ -3,7 +3,7 @@
  # @Author: ttimochan
  # @Date: 2022-11-04 17:14:08
  # @LastEditors: ttimochan
- # @LastEditTime: 2022-11-09 10:27:12
+ # @LastEditTime: 2022-11-09 16:53:06
  # @FilePath: /patchup/install.sh
 ### 
 
@@ -47,6 +47,7 @@ install-patchup(){
     cd patchup && \
 
     sudo pip3 install --editable . && \
+    sleep 1 && \
     if command -v patchup &> /dev/null; then
         echo "patchup 安装完成"
     else
@@ -58,6 +59,7 @@ install-patchup(){
 
 if command -v patchelf &> /dev/null; then
     echo "patchelf 已安装"
+    install-glibc-all-in-one
 else
     echo "patchelf 未安装"
     install-patchelf
