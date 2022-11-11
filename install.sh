@@ -3,7 +3,7 @@
  # @Author: ttimochan
  # @Date: 2022-11-04 17:14:08
  # @LastEditors: ttimochan
- # @LastEditTime: 2022-11-09 16:53:06
+ # @LastEditTime: 2022-11-11 17:05:02
  # @FilePath: /patchup/install.sh
 ### 
 
@@ -31,7 +31,7 @@ install-patchelf()
 }
 install-glibc-all-in-one()
 {
-    git clone https://github.com/matrix1001/glibc-all-in-one && \
+    git clone https://github.com/matrix1001/glibc-all-in-one 
     cd glibc-all-in-one && \
     mkdir libs && \
     chmod +x  extract  update_list download && \
@@ -44,10 +44,10 @@ install-glibc-all-in-one()
 install-patchup(){
     git clone https://github.com/polishing-labs/patchup.git --depth 1 && \
 
-    cd patchup && \
+    cd patchup 
 
-    sudo pip3 install --editable . && \
-    sleep 1 && \
+    sudo pip3 install --editable . 
+    sleep 1 
     if command -v patchup &> /dev/null; then
         echo "patchup 安装完成"
     else
